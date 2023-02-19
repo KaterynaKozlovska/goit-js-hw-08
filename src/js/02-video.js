@@ -17,13 +17,12 @@ const currentTime = function (data) {
     'videoplayer-current-time',
     JSON.stringify(data.seconds)
   );
+
   let time = Number(localStorage.getItem('videoplayer-current-time'));
   console.log(time);
 };
 
-player.on('timeupdate', currentTime);
-
-const onPlay = player.on('timeupdate', throttle(currentTime, 1000));
+player.on('timeupdate', throttle(currentTime, 1000));
 
 player
   .setCurrentTime(Number(localStorage.getItem('videoplayer-current-time')))

@@ -4,8 +4,6 @@ const STORAGE_KEY = 'feedback-form-state';
 const formData = {};
 const parsedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
-// localStorage.getItem(STORAGE_KEY, JSON.parse(formData));
-
 const form = document.querySelector('.feedback-form');
 const input = document.querySelector('input');
 const textarea = document.querySelector('textarea');
@@ -15,10 +13,6 @@ populateTextarea();
 form.addEventListener('submit', onFormSubmit);
 textarea.addEventListener('input', throttle(onTextareaInput, 500));
 input.addEventListener('input', throttle(onTextareaInput, 500));
-
-// form.addEventListener('input', e => {
-//   formData[e.target.name] = e.target.value;
-// });
 
 function onFormSubmit(e) {
   e.preventDefault();
@@ -41,4 +35,3 @@ function populateTextarea() {
     });
   }
 }
-//   (email = parsedData.email || ''), (textarea = textarea.message || '')
